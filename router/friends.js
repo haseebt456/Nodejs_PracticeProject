@@ -67,8 +67,11 @@ router.put("/:email", (req, res) => {
 
 // DELETE request: Delete a friend by email id
 router.delete("/:email", (req, res) => {
-  // Update the code here
-  res.send("Yet to be implemented")//This line is to be replaced with actual return value
+  const email  = req.body.email;
+  if(email){
+    delete friends[email];
+  }
+  res.send(`friend with email : ${email} is deleted`);
 });
 
 module.exports=router;
